@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/dp_24"
+    android:paddingRight="@dimen/dp_24"
+    android:paddingBottom="@dimen/dp_30"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/text_address"
+        android:text="新增收货地址"
+        android:textColor="#666666"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        cardUseCompatPadding="true"
+        cardElevation="@dimen/dp_4"
+        cardCornerRadius="@dimen/dp_13"
+        android:layout_below="@id/text_address"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp_20"
+            android:paddingRight="@dimen/dp_20"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="收件人:"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/real_name"
+                    android:paddingLeft="@dimen/dp_5"
+                    android:layout_width="match_parent"
+                    android:background="#ffffff"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="#f2f2f2"
+                android:layout_height="@dimen/dp_1"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="手机号码:"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/phone_num"
+                    android:paddingLeft="@dimen/dp_5"
+                    android:background="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="#f2f2f2"
+                android:layout_height="@dimen/dp_1"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="所在地区:"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/address_text"
+                    android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                    android:textSize="@dimen/sp_14"
+                    android:background="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="#f2f2f2"
+                android:layout_height="@dimen/dp_1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_height="@dimen/dp_50">
+                <TextView
+                    android:text="详细地址:"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/address_xiang"
+                    android:paddingLeft="@dimen/dp_5"
+                    android:background="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="#f2f2f2"
+                android:layout_height="@dimen/dp_1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="邮政编码:"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/zip_code"
+                    android:paddingLeft="@dimen/dp_5"
+                    android:background="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="#f2f2f2"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:layout_height="@dimen/dp_1"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <Button
+        android:id="@+id/save_address"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/address_shape"
+        android:textColor="#fff"
+        android:text="保存并使用"
+        android:layout_width="@dimen/dp_116"
+        android:layout_height="@dimen/dp_30" />
+</RelativeLayout>

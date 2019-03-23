@@ -1,0 +1,35 @@
+package com.smq.commerce.mvp.search.presenter;
+
+import com.smq.commerce.bean.SearchBean;
+import com.smq.commerce.mvp.search.model.SearchModel;
+import com.smq.commerce.mvp.search.view.SearchView;
+
+import java.util.List;
+
+/**
+ * Time:2019/3/21
+ * <p>
+ * Author:Lenovo
+ * <p>
+ * Description:
+ */
+public class SearchPresenter {
+
+    private final SearchModel searchModel;
+    private final SearchView searchView;
+
+    public SearchPresenter(SearchView view) {
+        searchModel = new SearchModel();
+        searchView = view;
+    }
+
+    public void onRetlade(String title, int page, int count) {
+        searchModel.getHttpData(title,page,count);
+        searchModel.setOnSearchListener(new SearchModel.onSearchListener() {
+            @Override
+            public void onRequest(List<SearchBean.ResultBean> result) {
+                searchView.getHttpData(result);
+            }
+        });
+    }
+}
