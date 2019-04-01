@@ -35,16 +35,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
     public SearchAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view=LayoutInflater.from(context).inflate(R.layout.search_item,null);
         final MyViewHolder myViewHolder=new MyViewHolder(view);
-        //添加条目点击事件
-//        view.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int position = myViewHolder.getLayoutPosition();
-//                if (onSearchRecyclerViewListener!=null){
-//                    onSearchRecyclerViewListener.getData(position);
-//                }
-//            }
-//        });
         return myViewHolder;
     }
 

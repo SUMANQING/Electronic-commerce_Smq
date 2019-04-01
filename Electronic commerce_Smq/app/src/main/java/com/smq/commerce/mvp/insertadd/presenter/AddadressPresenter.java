@@ -5,6 +5,9 @@ import com.smq.commerce.mvp.insertadd.model.AddrModel;
 import com.smq.commerce.mvp.insertadd.model.IAddrModel;
 import com.smq.commerce.mvp.insertadd.presenter.IAddadressPresenter;
 
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
+
 /**
  * Time:2019/3/23
  * <p>
@@ -12,10 +15,19 @@ import com.smq.commerce.mvp.insertadd.presenter.IAddadressPresenter;
  * <p>
  * Description:
  */
-public class AddadressPresenter implements IAddadressPresenter {
+public class AddadressPresenter<T> implements IAddadressPresenter {
     AddressActivity addAdressActivity;
     private final AddrModel addrModel;
-
+    private Reference<T> tReference;
+    public void attachView(T t){
+        tReference=new WeakReference<T>(t);
+    }
+    public void deatchView(){
+        if (tReference!=null){
+            tReference.clear();
+            tReference=null;
+        }
+    }
     public AddadressPresenter(AddressActivity addAdressActivity) {
         this.addAdressActivity = addAdressActivity;
         addrModel = new AddrModel();

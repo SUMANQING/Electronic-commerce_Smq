@@ -84,6 +84,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             MyPazhAdapter myPazhAdapter = new MyPazhAdapter(context,pzshCommodityList);
             ((PzshViewHolder) viewHolder).text_rlv.setAdapter(myPazhAdapter);
         }
+
+
     }
 
     @Override

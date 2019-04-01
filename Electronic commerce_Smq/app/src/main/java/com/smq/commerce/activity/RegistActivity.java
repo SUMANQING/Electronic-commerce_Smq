@@ -45,7 +45,7 @@ public class RegistActivity extends AppCompatActivity implements RegistView {
         bind = ButterKnife.bind(this);
 
         registPresenter = new RegistPresenter(this);
-
+        registPresenter.attachView(this);
 
         //已有账号 返回登录页面
         textLogin.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +96,7 @@ public class RegistActivity extends AppCompatActivity implements RegistView {
     protected void onDestroy() {
         super.onDestroy();
         bind.unbind();
+        registPresenter.deatchView();
     }
 }
 

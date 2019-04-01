@@ -5,6 +5,8 @@ import com.smq.commerce.api.Api;
 import com.smq.commerce.mvp.login.model.ILoginModel;
 import com.smq.commerce.mvp.login.model.LoginModel;
 
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
 import java.util.Map;
 
 /**
@@ -14,11 +16,20 @@ import java.util.Map;
  * <p>
  * Description:
  */
-public class LoginPresenter implements ILoginPresenter{
+public class LoginPresenter<T> implements ILoginPresenter{
 
     LoginActivity loginActivity;
     private final LoginModel loginModel;
-
+    private Reference<T> tReference;
+    public void attachView(T t){
+        tReference=new WeakReference<T>(t);
+    }
+    public void deatchView(){
+        if (tReference!=null){
+            tReference.clear();
+            tReference=null;
+        }
+    }
     public LoginPresenter(LoginActivity loginActivity) {
         this.loginActivity = loginActivity;
         loginModel = new LoginModel();

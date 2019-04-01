@@ -8,7 +8,10 @@ package com.smq.commerce.api;
  * Description:
  */
 public class Api {
-    public static final String BASE_URL = "http://mobile.bwstudent.com";
+
+    public static final String SYNCSHOPPINGCART="http://mobile.bwstudent.com//small/order/verify/v1/syncShoppingCart";
+
+    public static final String BASE_URL = "http://mobile.bwstudent.com/";
     //商品首页
     //http://172.17.8.100/small/commodity/v1/commodityList
     public static final String Home_Url="http://172.17.8.100/small/commodity/v1/";
@@ -28,4 +31,7 @@ public class Api {
     // 添加收货地址
     //http://172.17.8.100/small/user/verify/v1/addReceiveAddress
     public static final String INSERT_ADDRESS = "http://172.17.8.100/small/user/verify/v1/";
+
+    //收货地址列表
+    public static final String ADDRESS = "http://172.17.8.100/small/user/verify/v1/";
 }

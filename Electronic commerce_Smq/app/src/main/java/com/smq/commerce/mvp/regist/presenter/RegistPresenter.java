@@ -5,6 +5,8 @@ import com.smq.commerce.mvp.regist.model.IRegistModel;
 import com.smq.commerce.mvp.regist.model.RegistModel;
 import com.smq.commerce.mvp.regist.presenter.IRegistPresenter;
 
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
 import java.util.Map;
 
 /**
@@ -14,10 +16,19 @@ import java.util.Map;
  * <p>
  * Description:
  */
-public class RegistPresenter implements IRegistPresenter {
+public class RegistPresenter<T> implements IRegistPresenter {
     RegistActivity registActivity;
     private final RegistModel registModel;
-
+    private Reference<T> tReference;
+    public void attachView(T t){
+        tReference=new WeakReference<T>(t);
+    }
+    public void deatchView(){
+        if (tReference!=null){
+            tReference.clear();
+            tReference=null;
+        }
+    }
     public RegistPresenter(RegistActivity registActivity) {
         this.registActivity = registActivity;
         registModel = new RegistModel();

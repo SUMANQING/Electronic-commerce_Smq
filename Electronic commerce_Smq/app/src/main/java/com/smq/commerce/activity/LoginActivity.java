@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         bind = ButterKnife.bind(this);
 
         preferences = getSharedPreferences("config", MODE_PRIVATE);
+
         boolean flag = preferences.getBoolean("flag", false);
         loginCheck.setChecked(flag);
         if (flag) {
@@ -60,6 +61,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         }
 
         loginPresenter = new LoginPresenter(this);
+        loginPresenter.attachView(this);
         final Map<String, String> map = new HashMap<>();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +111,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 Log.i("123", "showMsg: " + loginBean.getResult().getUserId());
                 editor.putString("userId", loginBean.getResult().getUserId() + "");
                 editor.putString("sessionId", loginBean.getResult().getSessionId() + "");
+                Log.d("l***login",loginBean.getResult().getUserId()+"****"+loginBean.getResult().getSessionId());
                 editor.commit();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -128,6 +131,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     protected void onDestroy() {
         super.onDestroy();
         bind.unbind();
+        loginPresenter.deatchView();
     }
 }
 

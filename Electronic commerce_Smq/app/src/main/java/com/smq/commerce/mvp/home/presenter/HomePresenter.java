@@ -4,6 +4,8 @@ import com.smq.commerce.bean.HomeBean;
 import com.smq.commerce.mvp.home.model.HomeModel;
 import com.smq.commerce.mvp.home.view.HomeView;
 
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
@@ -13,11 +15,20 @@ import java.util.List;
  * <p>
  * Description:
  */
-public class HomePresenter {
+public class HomePresenter<T> {
 
     private final HomeModel homeModel;
     private final HomeView homeView;
-
+    private Reference<T> tReference;
+    public void attachView(T t){
+        tReference=new WeakReference<T>(t);
+    }
+    public void deatchView(){
+        if (tReference!=null){
+            tReference.clear();
+            tReference=null;
+        }
+    }
     public HomePresenter(HomeView view) {
         homeModel = new HomeModel();
         homeView = view;

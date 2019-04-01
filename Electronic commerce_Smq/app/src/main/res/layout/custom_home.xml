@@ -8,7 +8,7 @@
     tools:context=".activity.MainActivity">
 
     <ImageView
-        android:id="@+id/custom_home_sao"
+        android:id="@+id/custom_home_classification"
         android:src="@drawable/common_nav_btn_menu_n_hdpi"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
@@ -16,7 +16,10 @@
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/custom_home_edit"
-        android:layout_width="410dp"
+        android:layout_width="390dp"
+        android:hint="请输入要搜索的内容"
+        android:layout_marginRight="@dimen/dp_5"
+        android:layout_marginLeft="@dimen/dp_5"
         android:layout_height="wrap_content" />
     <ImageView
         android:id="@+id/custom_home_s"

@@ -60,7 +60,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView {
         searchRyc.setLayoutManager(gridLayoutManager);
 
         searchPresenter = new SearchPresenter(this);
-
+        searchPresenter.attachView(this);
 
         searchSw.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary, R.color.colorPrimaryDark);
         //下拉刷新
@@ -119,7 +119,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView {
                 @Override
                 public void getData(int position) {
                     Intent intent = new Intent(SearchActivity.this, DetailsActivity.class);
-                    intent.putExtra("vvv", position);
+                    intent.putExtra("date", position);
                     startActivity(intent);
                 }
             });
@@ -134,6 +134,10 @@ public class SearchActivity extends AppCompatActivity implements SearchView {
 
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        searchPresenter.deatchView();
+    }
 }
 

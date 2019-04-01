@@ -7,42 +7,137 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.DetailsActivity">
-    <RelativeLayout
-        android:background="#fff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="260dp">
-        </android.support.v4.view.ViewPager>
-
-        <TextView
-            android:textColor="#0f0"
-            android:id="@+id/numbre"
-            android:gravity="right|bottom"
-            android:textSize="35sp"
-            android:layout_width="wrap_content"
-            android:layout_height="260dp"
-            android:text="显示的当前页面"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="商品详情"
-        android:textSize="30sp"
-        android:textColor="#f00"
-        />
-    <WebView
-        android:id="@+id/wbe"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </WebView>
+            <ImageView
+                android:focusable="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/finsh"
+                android:id="@+id/fin"
+                />
 
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_200"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"></android.support.v4.view.ViewPager>
 
+            <TextView
+                android:textColor="#999999"
+                android:id="@+id/numbre"
+                android:gravity="right|bottom"
+                android:textSize="@dimen/sp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_200"
+                android:text="显示的当前页面"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/shoopprice"
+                android:text="价格"
+                android:textColor="#f00"
+                android:textSize="@dimen/sp_25"
+                />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/shoopnum"
+                android:text="数量"
+                android:textSize="@dimen/sp_10"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="@dimen/sp_12"
+                android:text="名称"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/shoopname"
+                />
+            <TextView
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="@dimen/sp_15"
+                android:text="商品详情"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <WebView
+                android:id="@+id/web"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            </WebView>
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/addshop"
+                android:layout_alignParentLeft="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/common_btn_add_n_hdpi"
+                />
+            <ImageView
+                android:id="@+id/addshopp"
+                android:layout_marginTop="@dimen/dp_100"
+                android:layout_alignParentRight="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/common_btn_add_n_hdpi"
+                />
+            <ImageView
+                android:id="@+id/addbuy"
+                android:layout_below="@+id/addshopp"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_alignParentRight="true"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/common_btn_buy"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>

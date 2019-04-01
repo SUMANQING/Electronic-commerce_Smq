@@ -51,7 +51,7 @@ public class AddressActivity extends AppCompatActivity implements IAddrView {
         final String sessionId = preferences.getString("sessionId", "");
 
         addadressPresenter = new AddadressPresenter(this);
-
+        addadressPresenter.attachView(this);
 
         pickerPopupWindow = new CityWheelPickerPopupWindow(AddressActivity.this);
         pickerPopupWindow.setListener(new OnCityWheelComfirmListener() {
@@ -90,12 +90,18 @@ public class AddressActivity extends AppCompatActivity implements IAddrView {
         InsertAddress insertAddress = (InsertAddress) o;
         if (insertAddress.getStatus().equals("0000")) {
             Toast.makeText(this, insertAddress.getMessage(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, AddressActivity.class);
+            Intent intent = new Intent(this, AddActivity.class);
             startActivity(intent);
             finish();
         } else {
             Toast.makeText(this, insertAddress.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        addadressPresenter.deatchView();
     }
 }
 

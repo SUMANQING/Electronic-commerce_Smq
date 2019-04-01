@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 
 import com.leon.lib.settingview.LSettingItem;
 import com.smq.commerce.R;
+import com.smq.commerce.activity.AddActivity;
 import com.smq.commerce.activity.AddressActivity;
+import com.smq.commerce.activity.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,10 +48,17 @@ public class Frag_main extends Fragment {
         View view = inflater.inflate(R.layout.frag_main, null, false);
         unbinder = ButterKnife.bind(this, view);
 
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),LoginActivity.class));
+            }
+        });
+
         myAddress.setmOnLSettingItemClick(new LSettingItem.OnLSettingItemClick() {
             @Override
             public void click() {
-                startActivity(new Intent(getActivity(),AddressActivity.class));
+                startActivity(new Intent(getActivity(),AddActivity.class));
             }
         });
 
